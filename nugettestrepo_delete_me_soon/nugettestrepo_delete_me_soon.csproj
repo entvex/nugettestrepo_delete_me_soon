@@ -4,6 +4,13 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <Title>nugettestrepo_delete_me_soon</Title>
+        <Description>nugettestrepo_delete_me_soon</Description>
+        <Copyright>MIT</Copyright>
+        <PackageProjectUrl>https://github.com/entvex/nugettestrepo_delete_me_soon</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/entvex/nugettestrepo_delete_me_soon</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 
 </Project>
