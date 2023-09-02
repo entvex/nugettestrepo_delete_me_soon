@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nugettestrepo_delete_me_soon", "nugettestrepo_delete_me_soon\nugettestrepo_delete_me_soon.csproj", "{69DD0F61-6119-4F88-BF78-5AA7D7453956}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69DD0F61-6119-4F88-BF78-5AA7D7453956}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69DD0F61-6119-4F88-BF78-5AA7D7453956}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69DD0F61-6119-4F88-BF78-5AA7D7453956}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69DD0F61-6119-4F88-BF78-5AA7D7453956}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
