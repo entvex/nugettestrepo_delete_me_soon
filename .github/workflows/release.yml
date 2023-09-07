@@ -41,8 +41,11 @@ jobs:
       
     - name: Build library (Release)
       run: dotnet build --no-restore -c release ${{ env.LIB_PROJ }}
+      
+    - name: Create nuget package
+      run: dotnet pack
 
     - name: Publish the package to nuget.org
-      run: dotnet nuget push  ${{ env.LIB_PROJ }}/bin/Release/*.nupkg --api-key $NUGET_AUTH_TOKEN --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push  nugettestrepo_delete_me_soon/bin/Release/*.nupkg --api-key $NUGET_AUTH_TOKEN --source https://api.nuget.org/v3/index.json
       env:
         NUGET_AUTH_TOKEN: ${{ secrets.NUGET_KEY }}
