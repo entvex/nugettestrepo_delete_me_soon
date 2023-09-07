@@ -1,0 +1,62 @@
+# Workflow to execute when a new version is released
+name: Release
+
+on:
+  release:
+  
+  # Used for testing and manual execution
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag Ref'
+        required: true
+
+jobs:
+  build:
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      
+    env:
+      LIB_PROJ: nugettestrepo_delete_me_soon/nugettestrepo_delete_me_soon.csproj
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        ref: ${{ github.events.inputs.tag }}
+        fetch-depth: 0
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '7.0.x'
+        
+    - name: Show .NET info
+      run: dotnet --info
+
+    - name: Build library (Debug)
+      run: dotnet build -c debug ${{ env.LIB_PROJ }}
+      
+    - name: Build library (Release)
+      run: dotnet build -c release ${{ env.LIB_PROJ }}
+
+  deploy:
+    needs: [build] # The second job must depend on the first one to complete before running and uses ubuntu-latest instead of windows.
+    runs-on: windows-latest
+    name: Update github pages docs 
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Download Artifacts # The built project is downloaded into the 'site' folder.
+        uses: actions/download-artifact@v1
+        with:
+          name: site
+
+      - name: Publish documentation to Github Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: site
+          target-folder: help
+          clean: false
