@@ -12,7 +12,7 @@
         <RepositoryUrl>https://github.com/entvex/nugettestrepo_delete_me_soon</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Version>1.0.6</Version>
+        <Version>1.0.10</Version>
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     </PropertyGroup>
