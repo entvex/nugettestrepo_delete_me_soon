@@ -3,6 +3,7 @@ name: Release
 
 on:
   release:
+    types: [published]
   
   # Used for testing and manual execution
   workflow_dispatch:
