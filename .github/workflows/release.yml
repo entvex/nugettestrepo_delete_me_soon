@@ -35,10 +35,10 @@ jobs:
       run: dotnet restore
       
     - name: Build library (Release)
-      run: dotnet build --no-restore -c release /p:ContinuousIntegrationBuild=true ${{ env.LIB_PROJ }}
+      run: dotnet build --no-restore -c release ${{ env.LIB_PROJ }}
       
     - name: Create nuget package
-      run: dotnet pack --no-build -c release --include-symbols
+      run: dotnet pack -c release --include-symbols
 
     - name: Publish the package to nuget.org
       run: dotnet nuget push  nugettestrepo_delete_me_soon/bin/Release/*.nupkg --api-key $NUGET_AUTH_TOKEN --source https://api.nuget.org/v3/index.json
