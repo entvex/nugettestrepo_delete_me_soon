@@ -11,13 +11,17 @@
         <PackageProjectUrl>https://github.com/entvex/nugettestrepo_delete_me_soon</PackageProjectUrl>
         <RepositoryUrl>https://github.com/entvex/nugettestrepo_delete_me_soon</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <Version>1.0.40</Version>
+        <Version>1.0.45</Version>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <EmbedUntrackedSources>true</EmbedUntrackedSources>
     </PropertyGroup>
-    
+
+    <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    </PropertyGroup>
+
     <ItemGroup>
         <None Include="../README.md" Pack="true" PackagePath="\"/>
     </ItemGroup>
