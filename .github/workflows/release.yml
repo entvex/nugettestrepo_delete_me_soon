@@ -31,6 +31,3 @@ jobs:
         run: dotnet nuget push nugettestrepo_delete_me_soon/bin/Release/*.nupkg --api-key $NUGET_AUTH_TOKEN --source https://api.nuget.org/v3/index.json
         env:
           NUGET_AUTH_TOKEN: ${{ secrets.NUGET_KEY }}
-          
-      - name: Upload asset to release
-        run: gh release upload $GITHUB_REF ($find nugettestrepo_delete_me_soon/bin/Release/ -type f -name "*.nupkg")
