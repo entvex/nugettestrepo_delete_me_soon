@@ -1,8 +1,8 @@
-name: Release
+name: published to nuget
 
 on:
   release:
-    types: [released]
+    types: [published]
 
 jobs:
   build:
@@ -13,6 +13,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Set Version Variable
+        if: ${{ github.ref_type == 'tag' }}
+        env:
+          TAG: ${{ github.ref_name }}
+        run: echo "VERSION=${TAG#v}" >> $GITHUB_ENV
+
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
@@ -22,10 +28,10 @@ jobs:
         run: dotnet restore
 
       - name: Build library (Release)
-        run: dotnet build --no-restore -c release nugettestrepo_delete_me_soon/nugettestrepo_delete_me_soon.csproj
+        run: dotnet build --no-restore /p:Version=$VERSION -c release nugettestrepo_delete_me_soon/nugettestrepo_delete_me_soon.csproj
 
       - name: Create nuget package
-        run: dotnet pack -c release --include-symbols
+        run: dotnet pack /p:PackageVersion=$VERSION -c release --include-symbols
 
       - name: Publish the package to nuget.org
         run: dotnet nuget push nugettestrepo_delete_me_soon/bin/Release/*.nupkg --api-key $NUGET_AUTH_TOKEN --source https://api.nuget.org/v3/index.json
