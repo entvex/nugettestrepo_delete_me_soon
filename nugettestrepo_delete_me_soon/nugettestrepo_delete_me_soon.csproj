@@ -11,7 +11,7 @@
         <PackageProjectUrl>https://github.com/entvex/nugettestrepo_delete_me_soon</PackageProjectUrl>
         <RepositoryUrl>https://github.com/entvex/nugettestrepo_delete_me_soon</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <Version>1.0.62</Version>
+        <Version>1.0.63</Version>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
